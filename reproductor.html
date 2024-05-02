@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Reproductor</title>
+	<!--Conecto la hoja de estilo de bootstrap-->
+	<link rel="stylesheet" type="text/css" href="bootstrap5/css/bootstrap.min.css">
+	<!--Conecto javascript de bootstrap-->
+	<script type="text/javascript" src="bootstrap5/js/bootstrap.min.js"></script>
+	<script src="https://kit.fontawesome.com/b0e4767092.js" crossorigin="anonymous"></script>
+	<script type="text/javascript" src="jquery-3.6.0.min.js"></script>
+	<script src="js/jquery.js"></script>
+	<script src="js/jquery.audioControls.min.js"></script>	
+	<!--llamar libreria propia-->
+	<script src="js/funciones.js"></script>
+	<style>
+		body{background: #181A1A;}
+		
+		.botoncabecera
+		{
+			background-color: f2f2f2;
+		}
+
+		h2 {
+			  text-shadow:
+			  0  4px 8px pink,
+			  0 -4px 8px black;	   
+			}
+		h3{text-shadow: 0 0 0.2em #F87, 0 0 0.2em #F87}
+
+		.letra{text-shadow:		
+				-6px -1px 1px rgba(0, 255, 0, 0.4);
+				color: #2A0A12;
+				font-size: 30px;
+				font-family: 'Special Elite', cursive;}
+				.botonesbb
+				{
+					margin: 15px;
+
+				}
+				.audio
+				{margin-top: 15px;
+				 
+				}
+
+				.img1{
+					border-radius: 50%;
+					animation-name: girarb;
+					animation-duration: 15s;
+					animation-iteration-count: infinite;
+					animation-timing-function: linear;
+					display: inline-block;
+				}
+
+		@keyframes girarb{
+			from{
+				transform: rotate(360deg);
+			}to{
+				transform: rotate(0deg);
+			}
+		}
+
+		.botones 
+		{
+			cursor: pointer;
+			border-radius: 50%;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			box-shadow: -8px -8px 20px 0px #fff9, -6px -6px 8px 8px 20px #0001, 5px 5px 6px 6px #FF3400;
+		}
+		.botones:active{
+			box-shadow: inset -8px -8px 20px #fff9,  
+			inset 8px 8px 20px #0003, inset 5px 5px 6px;
+
+		}
+		.grande {
+			min-height: 50px;
+			min-width: 50px;
+		}
+		.animacion{
+			display: flex;
+			width: 80px;
+			height: 80px;
+			background: none;
+			position: absolute;
+			top: 58%;
+			left: 28%;
+			justify-content: center;
+
+			
+		}
+		.lineas{
+			width: 10px;
+			position: absolute;
+			border-radius: 5px;
+			bottom: 0;
+			background: linear-gradient(
+				to bottom, purple, crimson);
+		}
+		.linea1 {
+			left: 0;
+			animation: dance 0.5s ease alternate infinite;
+		}
+		.linea2 {
+			left: 20;
+			animation: dance 0.5s 0.2s ease alternate infinite;
+		}
+
+		.linea3 {
+			left: 40;
+			animation: dance 0.5s 0.4s ease alternate infinite;
+		}
+		@keyframes dance {
+			0%{
+				height: 0;
+			}
+			100% {
+				height: 80%;
+			}
+
+		}
+		.nombremp3{
+			color: pink;
+		}
+		.pp{cursor: pointer;}
+		.text-end{color: white;}
+		a{text-decoration: none;
+		 color: black;}
+		 .c{background: pink}
+	</style> 
+</head>
+<body>
+	<div class="container">
+		<section class="row">
+			<aside class="col-12 col-md-12 col-lg-6 ">
+					<div class="row justify-content-between ">
+			<div class="col-auto botoncabecera">
+				<div class="botones grande">
+					<i class="fa-solid fa-circle-arrow-left" style="color: #fafcff;"></i>
+					
+				</div>
+			</div>
+
+			<div class="col-auto botoncabecera d-block d-sm-block d-md-block d-lg-none"><p class="letra"> Ahora </p></div>
+			<div class="col-auto botoncabecera d-none d-sm-none d-md-none d-lg-block"><p class="letra">Reproducir ahora </p></div>
+
+			<div class="col-auto botoncabecera">
+				<div class="botones grande">
+					<i class="fa-solid fa-bars" style="color: #fafcff;"></i>
+				</div>
+			</div>
+		</div>
+
+		<div class="row text-center">
+			<div class="col">
+				<img class="img1" src="blackpink1.jpg" width="200px" height="200px" class="rounded-circle">
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col text-center">
+				<h2>Blacpink</h2>
+				<h3><span class="col-6  nombremp3"></span></h3>
+			</div> <br>
+			
+			<div class="animacion">
+				<div class="lineas linea1"></div>
+				<div class="lineas linea2"></div>
+				<div class="lineas linea3"></div>
+			</div>
+		</div><br><br><br><br><hr>
+
+		<div class="row">
+			<div class="row justify-content-between ">
+							<span class="col-6  nombremp3"></span>
+							<span class="col-3  text-end" data-attr="timer"></span>
+						</div>
+
+						<div class="progress " role="progressbar" aria-label="Basic example" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
+						  <div class="progress-bar updateProgress"></div>
+						</div>
+		</div>
+
+		<div class="row justify-content-center">
+			<div class="col-auto botoncabecera">
+				<div class="botonesbb">&nbsp;
+					<i class="fa-solid fa-backward-fast fa-lg" style="color: #fafcff;"></i>&nbsp; &nbsp;
+					<i class="fa-solid fa-play fa-lg" style="color: #fafcff;"></i>&nbsp; &nbsp;
+					<i class="fa-solid fa-forward-fast fa-lg" style="color: #fafcff;"></i></i>
+				</div>
+			</div>
+		</div><br>
+		</aside>
+
+		<aside class="col-lg-6">
+		<div class="row">
+			<h2><i><center>Lista...</center></i></h2><br><br><hr>
+					<ul class="list-group playlist">
+					  <li class="list-group-item" data-src="audios/YouNeverKnow.mp3"><a class="pp" href="#">Blackpink - You Never Know</a></li>
+					  <li class="list-group-item" data-src="audios/BLACKPINK - How You Like That MV.mp3"><a class="pp" href="#">Blackpink - How you like that</a></li>
+					  <li class="list-group-item" data-src="audios/BLACKPINK - Kill This Love MV.mp3"><a class="pp" href="#">Blackpink - Kill this love</a></li>
+					  <li class="list-group-item" data-src="audios/BLACKPINK - 붐바야 (BOOMBAYAH) MV.mp3"><a class="pp" href="#">Blackpink - Boombayah</a></li>
+					  <li class="list-group-item" data-src="audios/blackpink.mp3"><a class="pp" href="#">Blackpink - Blackpink</a></li>
+
+					</ul>
+
+					
+		</div>
+		</aside>
+		</section>
+	<!--<button class="btn btn-primary">bootstrap</button>
+		<i class="fa-solid fa-arrow-left"></i>-->
+	</div>
+</body>
+</html>
+
